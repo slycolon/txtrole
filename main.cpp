@@ -32,19 +32,7 @@ int main()
 		<< "press enter to see the list of commands. ";
 	cin.ignore();
 	
-	cout<< endl
-		<< "command                                       what it does" << endl
-		<< "--------------------------------------------------------------" << endl
-		<< "n                                                 go north" << endl
-		<< "s                                                 go south" << endl
-		<< "e                                                 go east" << endl
-		<< "w                                                 go west" << endl
-		<< "i                                         check inventory" << endl
-		<< "attack 'x'                                attack an enemy" << endl
-		<< "heal                          gives you 5 hp, uses 5 mana" << endl
-		<< "                             mana can only be restored at" << endl
-		<< "                                      fountains of youth)" << endl
-		<< "--------------------------------------------------------------" << endl << endl
+	cout<< cmds() <<
 		<< "now, there's one last thing that we need to do before we get" << endl
 		<< "started. i need to ask you a few questions. first off, what" << endl
 		<< "name do you go by?" << endl
