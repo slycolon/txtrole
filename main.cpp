@@ -9,51 +9,42 @@ using namespace std;
 
 void begin();
 string nick();
-int playerClass = 0;
+int playerClass(string nick);
 
 int main()
 {
 	//integers
 	string nick = "player";
-	string playerClass = "brute";
-	int hp = 13;
-	int atk = 14;
+	int playerClass = 0;
+	int hp = 0;
+	int atk = 0;
 	int def = 0;
-	int mna = 15;
-	int intel = 17;
+	int mna = 0;
+	int intel = 0;
 	
 	
 	//game beginning
 	begin();
 	nick = nick();					// not sure if this will auto do nick() or if i have to initialize it first
+	playerClass = playerClass(nick);
 	
+	if (playerClass == 1) 				//brute
+	{
+		hp =
+	}
+	else if (playerClass == 2)
+	{
+		//scholar stats
+	}
+	else if (playerClass == 3)
+	{
+		//healer stats
+	}
+	else if (playerClass == 4)
+	{
+		//defender
+	}
 	
-	if (gender == "g" || gender == "G")
-	{
-		gender = "girl";
-		hp = 13;
-		atk = 13;
-		def = 17;
-		mna = 15;
-		intel = 17;
-	}
-	else if (gender == "b" || gender == "B")
-	{
-		gender = "boy";
-		hp = 15;
-		atk = 13;
-		def = 14;
-		mna = 15;
-		intel = 14;
-	}
-	else
-	{
-		cout<< "sorry, but that is not a valid option" << endl
-			<< "(there may be more options in the future," << endl
-			<< "but just not at the current moment)." << endl
-			<< "therefore, your gender has been defaulted " << endl
-			<< "to girl." << endl << endl;
-	}
 	cout<< "so, based on your gender (i know it's " << endl
 		<< "sexist but just please play along for " << endl
 		<< "the first version at least), which is " << endl
@@ -104,4 +95,57 @@ string nick()
 	
 	return nick;
 }
+	
+int playerClass(string nick)
+{
+	string playerClass = "brute";
+	bool cont = true;
+	
+	cout<<"alright, " << nick << ", now i need you to decide on a class." << endl
+		<<"there are 4 classes available: brute, scholar, healer, and " << endl
+		<<"defender. please select one of these now (spelling and case " << endl
+		<<"matters)." << endl
+		<<">";
+	do
+	{
+		
+		cin >> playerClass;
+	
+		if (playerClass == "brute")
+		{
+			return 1;
+			cont = false
+		}
+		else if (playerClass == "scholar")
+		{
+			return 2;
+			cont = false
+		}
+		else if (playerClass == "healer")
+		{
+			return 3;
+			cont = false
+		}
+		else if (playerClass == "defender")
+		{
+			return 4;
+			cont = false;
+		}
+		else 
+		{
+			cout<<"i'm sorry, but " << playerClass << " is not a valid player class." << endl
+				<<"please enter a valid class (remember, spelling and case are" << endl
+				<<"important)." << endl << ">";
+		}
+	} while (cont == true);
+		
+}
+	
+	
+	
+	
+	
+	
+	
+	
 	
