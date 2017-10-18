@@ -30,40 +30,36 @@ int main()
 	
 	if (playerClass == 1) 				//brute
 	{
-		hp =
+		hp = 19;
+		mna = 12;
+		atk = 18;
+		def = 15;
+		intel = 11;
 	}
-	else if (playerClass == 2)
+	else if (playerClass == 2)			//scholar
 	{
-		//scholar stats
+		hp = 15;
+		mna = 12;
+		atk = 14;
+		def = 14;
+		intel = 20;
 	}
-	else if (playerClass == 3)
+	else if (playerClass == 3)			//healer
 	{
-		//healer stats
+		hp = 14;
+		mna = 21;
+		atk = 13;
+		def = 13;
+		intel = 14;
 	}
-	else if (playerClass == 4)
+	else if (playerClass == 4)			//defender
 	{
-		//defender
+		hp = 17;
+		mna = 13;
+		atk = 13;
+		def = 20;
+		intel = 12;
 	}
-	
-	cout<< "so, based on your gender (i know it's " << endl
-		<< "sexist but just please play along for " << endl
-		<< "the first version at least), which is " << endl
-		<< gender << ", these are your stats:" << endl << endl
-		<< "health points (hp): " << hp << endl
-		<< "mana points (mna): " << mna << endl
-		<< "attack damage (atk): " << atk << endl
-		<< "defense (def): " << def << endl
-		<< "intelligence (intel): " << intel << endl << endl
-		
-		<< "now, you have the opportunity to add a " << endl
-		<< "few points onto whichever statistic that " << endl
-		<< "you think will be useful in your coming" << endl
-		<< "adventure." << endl << endl;
-		
-		do
-		{
-			cout<< "You currently have " << points << " points left to spend."
-		}
 }
 
 
