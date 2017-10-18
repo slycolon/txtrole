@@ -7,11 +7,15 @@
 
 using namespace std;
 
+void begin();
+string nick();
+int playerClass = 0;
+
 int main()
 {
 	//integers
 	string nick = "player";
-	string gender = "girl";
+	string playerClass = "brute";
 	int hp = 13;
 	int atk = 14;
 	int def = 0;
@@ -20,29 +24,9 @@ int main()
 	
 	
 	//game beginning
+	begin();
+	nick = nick();					// not sure if this will auto do nick() or if i have to initialize it first
 	
-	cout<< "hello, and welcome to txtrole, a text-based rpg by slycolon." << endl
-		<< "press enter to continue. ";
-	cin.ignore();
-	
-	cout<< endl
-		<< "okay, before we start, we should go over a few things. this" << endl
-		<< "game uses a few commands that you should know about and all" << endl
-		<< "commands that are more than one letter are case-sensitive." << endl
-		<< "press enter to see the list of commands. ";
-	cin.ignore();
-	
-	cout<< cmds() <<
-		<< "now, there's one last thing that we need to do before we get" << endl
-		<< "started. i need to ask you a few questions. first off, what" << endl
-		<< "name do you go by?" << endl
-		<< endl << ">";
-	cin >> nick;
-		
-	cout<< "okay, " << nick << ", now, are you a boy or a girl?" << endl
-		<< "'g' for girl, 'b' for boy." << endl << endl
-		<< ">";
-	cin >> gender;
 	
 	if (gender == "g" || gender == "G")
 	{
@@ -90,3 +74,34 @@ int main()
 			cout<< "You currently have " << points << " points left to spend."
 		}
 }
+
+
+void begin()
+{
+	cout<<"hello, and welcome to txtrole, a text-based rpg by slycolon." << endl
+		<<"press enter to continue.";
+	cin.ignore();
+	
+	cout<< endl
+		<< "okay, before we start, we should go over a few things. this" << endl
+		<< "game uses a few commands that you should know about and all" << endl
+		<< "commands that are more than one letter are case-sensitive." << endl
+		<< "press enter to see the list of commands. ";
+	cin.ignore();
+	
+	cmds();
+}
+
+string nick()
+{
+	string nick = "player0"
+	
+	cout<< "now, there's one last thing that we need to do before we get" << endl
+		<< "started. i need to ask you a few questions. first off, what" << endl
+		<< "name do you go by?" << endl
+		<< endl << ">";
+	cin >> nick;
+	
+	return nick;
+}
+	
