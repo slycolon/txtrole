@@ -8,6 +8,7 @@
 using namespace std;
 
 void begin();
+void statDisplay(int hp, int mna, int atk, int def, int intel);
 string nick();
 int playerClass(string nick);
 
@@ -60,6 +61,8 @@ int main()
 		def = 20;
 		intel = 12;
 	}
+	
+	statDisplay(hp,mna,atk,def,intel);
 }
 
 
@@ -137,9 +140,21 @@ int playerClass(string nick)
 		
 }
 	
-	
-	
-	
+void statDisplay(int hp, int mna, int atk, int def, int intel)
+{
+	cout<<"okay, so your stats include your: " << endl
+		<<"health points, of which you have " << hp << "," << endl
+		<<"mana points, of which you have " << mna << "," << endl
+		<<"attack points, of which you have " << atk << "," << endl
+		<<"defense points, of which you have " << def << "," << endl
+		<<"and finally, intelligence points, of which you have " << intel << "." << endl << endl
+		<<"keep in mind that these are all just your " << endl
+		<<"base levels, and in a minute, you'll have " << endl
+		<<"the opportunity to add a few onto certain " << endl
+		<<"categories of your choosing, and later when" << endl
+		<<"you manage to level up, you'll be given " << endl
+		<<"another opportunity to add more points.";
+}
 	
 	
 	
