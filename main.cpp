@@ -7,7 +7,7 @@
 
 using namespace std;
 
-void begin();
+string begin();
 void statDisplay(int hp, int mna, int atk, int def, int intel);
 string nick();
 int playerClass(string nick);
@@ -26,6 +26,15 @@ int main()
 	
 	//game beginning
 	begin();
+	if (begin() == "new")
+	{
+		newGame();  					//write a new game function
+	}
+	else
+	{
+		loadGame();						//write a loadGame() function that leaves the player where they left off.
+	}
+	
 	nick = nick();					// not sure if this will auto do nick() or if i have to initialize it first
 	playerClass = playerClass(nick);
 	
@@ -66,20 +75,19 @@ int main()
 }
 
 
-void begin()
+string begin()
 {
-	cout<<"hello, and welcome to txtrole, a text-based rpg by slycolon." << endl
-		<<"press enter to continue.";
-	cin.ignore();
+	string newOrLoad = "new";
+	cout<<"welcome to txtrole." << endl
+		<<"would you like to start a 'new' game or 'load' a previous save?";
+	cin >> newOrLoad
 	
-	cout<< endl
-		<< "okay, before we start, we should go over a few things. this" << endl
-		<< "game uses a few commands that you should know about and all" << endl
-		<< "commands that are more than one letter are case-sensitive." << endl
-		<< "press enter to see the list of commands. ";
-	cin.ignore();
+	if (newOrLoad != "new" || newOrLoad != "load")
+	{
+		newOrLoad = "new";
+	}
 	
-	cmds();
+	return newOrLoad;
 }
 
 string nick()
