@@ -9,15 +9,21 @@ using namespace std;
 string name;
 int health = 50;
 int strength = 15;
-int defense = 15;
+int defense = 15;		//base player stats
 int speed = 15;
 int level = 1;
 int experience = 0;
+
+string playerWeapon;
+int weaponDamage = 0;		//weapon variables, upgradable at later levels
+int weaponSpeed = 0;
+
 //end global variables
 
 //begin function prototyping
 void begin();
 void findName();
+void findWeapon();
 //end function prototyping
 
 int main()
@@ -26,6 +32,7 @@ int main()
 	
 	begin();
 	findName();
+	findWeapon();
 }
 
 
@@ -80,3 +87,45 @@ void findName()
 		}
 		
 	} while (askName == false);
+
+/****
+function name: void findWeapon()
+purpose: asks the player what weapon they want to wield
+***/
+	
+void findWeapon()
+{
+	char choice;
+	
+	cout<<"now, i need you to select your main weapon. you have three choices: " << endl
+		<<"    (a) a broadsword (most damage, least speed)" << endl
+		<<"    (b) two daggers (moderate damage, moderate speed)" << endl
+		<<"    (c) a rapier (least damage, highest speed)" << endl << endl
+		<< ">";
+	
+	cin >> choice;
+	
+	switch (choice)
+	{
+		case 'a':
+			playerWeapon = "broadsword";
+			weaponDamage = 6;
+			weaponSpeed = 2;
+			break;
+		case 'b':
+			playerWeapon = "daggers";
+			weaponDamage = 4;
+			weaponSpeed = 4;
+			break;
+		case 'c':
+			playerWeapon = "rapier";
+			weaponDamage = 2;
+			weaponSpeed = 6;
+		default:
+			playerWeapon = "daggers";
+			weaponDamage = 4;
+			weaponSpeed = 4;
+	}
+	
+	cout<<endl;
+}
