@@ -24,6 +24,11 @@ int weaponSpeed = 0;
 void begin();
 void findName();
 void findWeapon();
+
+char startGame();
+
+void enterCaveControlFlow();
+void enterVillageControlFlow();
 //end function prototyping
 
 int main()
@@ -33,6 +38,17 @@ int main()
 	begin();
 	findName();
 	findWeapon();
+	
+	choice = startGame()
+		
+	if (choice == 'a')
+	{
+		enterCaveControlFlow();
+	}
+	else
+	{
+		enterVillageControlFlow();
+	}
 }
 
 
@@ -128,4 +144,23 @@ void findWeapon()
 	}
 	
 	cout<<endl;
+}
+
+char startGame()
+{
+	char choice;
+	
+	cout<<"you wake up on the cold, wet ground of an unlit cave on the side of a mountain." << endl
+		<<"the cave appears to go deeper into the mountain, but if you look outside the" << endl
+		<<"mouth of the cave, there is also a path leading into a village. would you like" << endl
+		<<"to (a) delve deeper into the cave and explore the farest reaches of the under-"<<endl
+		<<"belly of the mountain, or (b) see what sorts of interesting loot you can find" << endl
+		<<"hidden in the shacks of the village on the river?" << endl << endl << ">";
+	
+	cin >> choice;
+	
+	if (char == 'a' || char == 'A')
+		return 'a';
+	else
+		return 'b';
 }
