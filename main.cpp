@@ -5,6 +5,15 @@
 
 using namespace std;
 
+//global constants begin
+const int LEVEL_TWO = 50;
+const int LEVEL_THREE = 100;
+const int LEVEL_FOUR = 200;	//total experience accumulated to 
+const int LEVEL_FIVE = 350;
+const int LEVEL_SIX = 550;
+
+
+//global constants end 
 //begin global variables
 string name;
 int health = 50;
@@ -12,23 +21,33 @@ int strength = 15;
 int defense = 15;		//base player stats
 int speed = 15;
 int level = 1;
-int experience = 0;
+int totalExperience = 0;
 
-string playerWeapon;
-int weaponDamage = 0;		//weapon variables, upgradable at later levels
-int weaponSpeed = 0;
+string currentEnemy;
+string enemyFlavor;
+string enemyAttackNameOne;
+string enemyAttackNameTwo;
+string enemyAttackNameThree;
+string enemyAttackDescOne;
+string enemyAttackDescTwo;
+string enemyAttackDescTwo;
+int enemyHealth = 0;		//changeable variables for enemy statistics, depending on what 
+int enemyAttack = 0;
+int enemyDefense = 0;
+int enemyExperience = 0;	//how much experience the player gets from killing the enemy
 
 //end global variables
 
 //begin function prototyping
 void begin();
 void findName();
-void findWeapon();
 
 char startGame();
 
 void enterCaveControlFlow();
 void enterVillageControlFlow();
+
+void checkLevel();
 //end function prototyping
 
 int main()
@@ -104,47 +123,7 @@ void findName()
 		
 	} while (askName == false);
 
-/****
-function name: void findWeapon()
-purpose: asks the player what weapon they want to wield
-***/
-	
-void findWeapon()
-{
-	char choice;
-	
-	cout<<"now, i need you to select your main weapon. you have three choices: " << endl
-		<<"    (a) a broadsword (most damage, least speed)" << endl
-		<<"    (b) two daggers (moderate damage, moderate speed)" << endl
-		<<"    (c) a rapier (least damage, highest speed)" << endl << endl
-		<< ">";
-	
-	cin >> choice;
-	
-	switch (choice)
-	{
-		case 'a':
-			playerWeapon = "broadsword";
-			weaponDamage = 6;
-			weaponSpeed = 2;
-			break;
-		case 'b':
-			playerWeapon = "daggers";
-			weaponDamage = 4;
-			weaponSpeed = 4;
-			break;
-		case 'c':
-			playerWeapon = "rapier";
-			weaponDamage = 2;
-			weaponSpeed = 6;
-		default:
-			playerWeapon = "daggers";
-			weaponDamage = 4;
-			weaponSpeed = 4;
-	}
-	
-	cout<<endl;
-}
+
 
 char startGame()
 {
@@ -164,3 +143,102 @@ char startGame()
 	else
 		return 'b';
 }
+
+/****
+function name: void caveControlFlow()
+purpose: starts the cave scene
+****/
+	
+void enterCaveControlFlow()
+{
+	
+}
+
+/****
+function name: void villageControlFlow
+purpose: essentially what i would put in main() but able
+to run a specific amount of times, and you can just go 
+straight to the cave whenever necessary
+****/
+	
+void enterVillageControlFlow()
+{
+	
+}
+
+
+/****
+function name: void checkLevel()
+purpose: checks the player level after any encounter where
+the player receives experience. if their level changes,
+that means they level up and it tells them their new level,
+and it changes their statistics accordingly
+****/
+void checkLevel()
+{
+	int newLevel;
+	
+	if(experience < LEVEL_TWO)
+	{
+		level = 1;
+	}
+	else if (experience >= LEVEL_TWO || experience < LEVEL_THREE)
+	{
+		newLevel = 2;
+		if (newLevel - level != 0)
+		{
+			cout<<"congrats! you're now level " << newLevel << "!";
+		}
+		level = 2;
+		strength = 20;
+		defense = 20;					//these new stats may need to be rebalanced during testing
+		speed = 20;
+	}
+	else if (experience >= LEVEL_THREE || experience < LEVEL_FOUR)
+	{
+		newLevel = 3;
+		if (newLevel - level != 0)
+		{
+			cout<<"congrats! you're now level " << newLevel << "!";
+		}
+		level = 3;
+		strength = 25;
+		defense = 25;
+		speed = 25;
+	}
+	else if (experience >= LEVEL_FOUR || experience < LEVEL_FIVE)
+	{
+		newLevel = 4;
+		if (newLevel - level != 0)
+		{
+			cout<<"congrats! you're now level " << newLevel << "!";
+		}
+		level = 4;
+		strength = 30;
+		defense = 30;
+		speed = 30;
+	}
+	else if (experience >= LEVEL_FIVE || experience < LEVEL_SIX)
+	{
+		newLevel = 5;
+		if (newLevel - level != 0)
+		{
+			cout<<"congrats! you're now level " << newLevel << "!";
+		}
+		level = 5;
+		strength = 35;
+		defense = 35;
+		speed = 35;
+	}
+	else
+	{
+		newLevel = 6;
+		if (newLevel - level != 0)
+		{
+			cout<<"congrats! you're now level " << newLevel << "!";
+		}
+		level = 6;
+		strength = 40;
+		defense = 40;
+		speed = 40;
+	}
