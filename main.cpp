@@ -36,16 +36,21 @@ int enemyAttack = 0;
 int enemyDefense = 0;
 int enemyExperience = 0;	//how much experience the player gets from killing the enemy
 
+bool canGoNorth = true;
+bool canGoSouth = true;
+bool canGoEast = true;		//used to find which way the player is able to go
+bool canGoWest = true;
+
 //end global variables
 
 //begin function prototyping
 void begin();
 void findName();
+void startGame();
 
-char startGame();
+void enterCave();
 
-void enterCaveControlFlow();
-void enterVillageControlFlow();
+void enterVillage();
 
 void checkLevel();
 //end function prototyping
@@ -57,17 +62,9 @@ int main()
 	begin();
 	findName();
 	findWeapon();
-	
-	choice = startGame()
+	startGame();
 		
-	if (choice == 'a')
-	{
-		enterCaveControlFlow();
-	}
-	else
-	{
-		enterVillageControlFlow();
-	}
+	return 0;
 }
 
 
@@ -125,47 +122,40 @@ void findName()
 
 
 
-char startGame()
+void startGame()
 {
 	char choice;
 	
 	cout<<"you wake up on the cold, wet ground of an unlit cave on the side of a mountain." << endl
 		<<"the cave appears to go deeper into the mountain, but if you look outside the" << endl
 		<<"mouth of the cave, there is also a path leading into a village. would you like" << endl
-		<<"to (a) delve deeper into the cave and explore the farest reaches of the under-"<<endl
-		<<"belly of the mountain, or (b) see what sorts of interesting loot you can find" << endl
-		<<"hidden in the shacks of the village on the river?" << endl << endl << ">";
+		<<"to (n) go north, delving deeper into the cave and explore the farthest reaches of"<<endl
+		<<"the underbelly of the mountain, or (b) see what sorts of interesting loot you" << endl
+		<<"can find hidden in the shacks of the village on the river?" << endl << endl << ">";
 	
 	cin >> choice;
+	cout<<endl;
 	
-	if (char == 'a' || char == 'A')
-		return 'a';
+	if (char == 'N' || char == 'n')
+		enterCave();
 	else
-		return 'b';
+		enterVillage();
 }
 
-/****
-function name: void caveControlFlow()
-purpose: starts the cave scene
-****/
+void enterCave()
+{
+	cout<<"you decide to venture deeper into the cave. you come to a curve in the cave," << endl
+		<<"and as you continue walking, you are plunged in darkness as the mouth of the" << endl
+		<<"cave collapses upon itself, trapping you inside the cave. seeing no way to " << endl
+		<<"escape from the cave, you continue working your way forward in hopes of finding" << endl
+		<<"a better way out. you come to a fork in the cave, and are offered to 
+		
+}
 	
-void enterCaveControlFlow()
+void enterVillage()
 {
 	
 }
-
-/****
-function name: void villageControlFlow
-purpose: essentially what i would put in main() but able
-to run a specific amount of times, and you can just go 
-straight to the cave whenever necessary
-****/
-	
-void enterVillageControlFlow()
-{
-	
-}
-
 
 /****
 function name: void checkLevel()
