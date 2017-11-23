@@ -144,12 +144,28 @@ void startGame()
 
 void enterCave()
 {
+	char choice;
+	
 	cout<<"you decide to venture deeper into the cave. you come to a curve in the cave," << endl
 		<<"and as you continue walking, you are plunged in darkness as the mouth of the" << endl
 		<<"cave collapses upon itself, trapping you inside the cave. seeing no way to " << endl
 		<<"escape from the cave, you continue working your way forward in hopes of finding" << endl
-		<<"a better way out. you come to a fork in the cave, and are offered to 
+		<<"a better way out. you come to a fork in the cave, and are offered two options:" << endl << endl
+		<<"    (w) go left, or" << endl
+		<<"    (e) go right)" << endl << endl
+		<<"which do you choose?" << endl << endl
+		<<">";
+	
+	cin >> choice;
+	
+	if(choice == 'w' || choice == 'W')
+	{
 		
+	}
+	else
+	{
+		
+	}	
 }
 	
 void enterVillage()
