@@ -32,9 +32,11 @@ bool abyssalKnown;
 //other traits
 
 string name;
+string playerClass;
 int playerLevel = 1;
 int playerXP = 0;
-	/****
+
+/****
 	enemies & stats (base, before balancing):
 	
 		lycanthropes (p.180 in mm):
@@ -70,7 +72,7 @@ int enemyExperience = 0;	//how much experience the player gets from killing the 
 void begin();
 void chooseName();
 
-void chooseClass();
+void chooseRace();
 void dragonbornStats();
 void dwarfStats();
 void eladrinStats();
@@ -88,6 +90,24 @@ void halflingInfo();
 void tieflingInfo();
 void humanInfo();
 
+void chooseClass();
+void clericStats();
+void rogueStats();
+void fighterStats();
+void warlockStats();
+void paladinStats();
+void warlordStats();
+void rangerStats();
+void wizardStats();
+void clericInfo();
+void rogueInfo();
+void fighterInfo();
+void warlockInfo();
+void paladinInfo();
+void warlordInfo();
+void rangerInfo();
+void wizardInfo();
+
 void startGame();
 
 void enterCave();
@@ -101,20 +121,10 @@ int main()
 {
 	char choice;
 	
-	begin();
-	chooseName();
-	chooseClass();
-	findWeapon();
-	startGame();
-		
+	begin();	
 	return 0;
 }
 
-
-/*****************
-function name: void begin()
-purpose: begins the game
-*****************/
 void begin();
 {
 	cout<<"© slycolon 2017. all rights reserved." << endl << endl
@@ -127,6 +137,8 @@ void begin();
 		<<"created by slycolon. press enter to begin. ";
 	cin.ignore();
 	cout<<endl;
+	
+	chooseName();
 }
 
 
@@ -159,21 +171,23 @@ void chooseName()
 		}
 		
 	} while (askName == false);
+	
+	chooseRace();
 }
 
-void chooseClass()
+void chooseRace()
 {
 	char choice;
 	
 	cout<<"now, what race might you be?" << endl << endl
-		<<"(a) dragonborn (for more info, type (i)" << endl
-		<<"(b) dwarf (for more info, type (j)" << endl
-		<<"(c) eladrin (for more info, type (k)" << endl
-		<<"(d) elf (for more info, type (l)" << endl
-		<<"(e) half-elf (for more info, type (m)" << endl
-		<<"(f) halfling (for more info, type (n)" << endl
-		<<"(g) tiefling (for more info, type (o)" << endl
-		<<"(h) human (for more info, type (p)" << endl << endl
+		<<"(a) dragonborn (for more info, type 'i')" << endl
+		<<"(b) dwarf (for more info, type 'j')" << endl
+		<<"(c) eladrin (for more info, type 'k')" << endl
+		<<"(d) elf (for more info, type 'l')" << endl
+		<<"(e) half-elf (for more info, type 'm')" << endl
+		<<"(f) halfling (for more info, type 'n')" << endl
+		<<"(g) tiefling (for more info, type 'o')" << endl
+		<<"(h) human (for more info, type 'p')" << endl << endl
 		<<">";
 	
 	cin >> choice;
@@ -245,12 +259,14 @@ void chooseClass()
 			humanInfo();
 			break;
 		default:
-			humanInfo();
+			humanStats();
 	}
 }
 
 void dragonbornStats()
 {
+	playerRace = "dragonborn";
+	
 	commonKnown = true;
 	draconicKnown = true;
 	deepSpeechKnown = false;
@@ -265,10 +281,15 @@ void dragonbornStats()
 	
 	playerHeight = 1.9;
 	playerWeight = 122;
+	playerSpeed = 6;
+	
+	chooseClass();
 }
 
 void dwarfStats()
 {
+	playerRace = "dwarf";
+	
 	commonKnown = true;
 	draconicKnown = false;
 	deepSpeechKnown = false;
@@ -280,10 +301,18 @@ void dwarfStats()
 	primordialKnown = false;
 	supernalKnown = false;
 	abyssalKnown = false;
+	
+	playerHeight = 1.37;
+	playerWeight = 82;
+	playerSpeed = 5;
+	
+	chooseClass();
 }
 
 void eladrinStats()
 {
+	playerRace = "eladrin";
+	
 	commonKnown = true;
 	draconicKnown = false;
 	deepSpeechKnown = false;
@@ -295,10 +324,18 @@ void eladrinStats()
 	primordialKnown = false;
 	supernalKnown = false;
 	abyssalKnown = false;
+	
+	playerHeight = 1.75;
+	playerWeight = 67;
+	playerSpeed = 6;
+	
+	chooseClass();
 }
 
 void elfStats()
 {
+	playerRace = "elf";
+	
 	commonKnown = true;
 	draconicKnown = false;
 	deepSpeechKnown = false;
@@ -310,10 +347,18 @@ void elfStats()
 	primordialKnown = false;
 	supernalKnown = false;
 	abyssalKnown = false;
+	
+	playerHeight = 1.75;
+	playerWeight = 64;
+	playerSpeed = 7;
+	
+	chooseClass();
 }
 
 void halfElfStats()
 {
+	playerRace = "half-elf";
+	
 	commonKnown = true;
 	draconicKnown = false;
 	deepSpeechKnown = true;
@@ -325,10 +370,17 @@ void halfElfStats()
 	primordialKnown = false;
 	supernalKnown = false;
 	abyssalKnown = false;
+	
+	playerHeight = 1.75;
+	playerWeight = 72;
+	playerSpeed = 6;
+	chooseClass();
 }
 
 void halflingStats()
 {
+	playerRace = "halfling";
+	
 	commonKnown = true;
 	draconicKnown = false;
 	deepSpeechKnown = false;
@@ -340,10 +392,18 @@ void halflingStats()
 	primordialKnown = false;
 	supernalKnown = false;
 	abyssalKnown = false;
+	
+	playerHeight = 1.22;
+	playerWeight = 34;
+	playerSpeed = 6;
+	
+	chooseClass();
 }
 
 void tieflingStats()
 {
+	playerRace = "tiefling";
+	
 	commonKnown = true;
 	draconicKnown = false;
 	deepSpeechKnown = false;
@@ -355,10 +415,18 @@ void tieflingStats()
 	primordialKnown = false;
 	supernalKnown = false;
 	abyssalKnown = false;
+	
+	playerHeight = 1.78;
+	playerWeight = 77;
+	playerSpeed = 6;
+	
+	chooseClass();
 }
 
 void humanStats()
 {
+	playerRace = "human";
+	
 	commonKnown = true;
 	draconicKnown = false;
 	deepSpeechKnown = false;
@@ -371,13 +439,219 @@ void humanStats()
 	supernalKnown = false;
 	abyssalKnown = false;
 	
+	playerHeight = 1.77;
+	playerWeight = 77;
+	playerSpeed = 6;
 	
+	chooseClass();
 }
 
 void dragonbornInfo()
 {
 	cout<<"--------------------------------------------------------------------------------------------------------------"; 
 	cout<<"
+}
+
+void dwarfInfo()
+{
+	
+}
+
+void eladrinInfo()
+{
+	
+}
+
+void elfInfo()
+{
+	
+}
+
+void halfElfInfo()
+{
+	
+}
+
+void halflingInfo()
+{
+	
+}
+
+void tieflingInfo()
+{
+	
+}
+
+void humanInfo()
+{
+	
+}
+
+void chooseClass()
+{
+	char choice;
+	
+	cout<<"now, you have eight choices as to what your class is. what might yours be?" << endl << endl
+		<<"(a) cleric (for more info, type 'i')" << endl
+		<<"(b) rogue (for more info, type 'j')" << endl
+		<<"(c) fighter (for more info, type 'k')" << endl
+		<<"(d) warlock (for more info, type 'l')" << endl
+		<<"(e) paladin (for more info, type 'm')" << endl
+		<<"(f) warlord (for more info, type 'n')" << endl
+		<<"(g) ranger (for more info, type 'o')" << endl
+		<<"(h) wizard (for more info, type 'p')" << endl << endl
+		<<">";
+	cin >> choice;
+	
+	switch (choice)
+	{
+		case: 'a':
+		case: 'A':
+			clericStats();
+			break;
+		case: 'b':
+		case: 'B':
+			rogueStats();
+			break;
+		case: 'c':
+		case: 'C':
+			fighterStats();
+			break;
+		case: 'd':
+		case: 'D':
+			warlockStats();
+			break;
+		case: 'e':
+		case: 'E':
+			paladinStats();
+			break;
+		case: 'f':
+		case: 'F':
+			warlordStats();
+			break;
+		case: 'g':
+		case: 'G':
+			rangerStats();
+			break;
+		case: 'h':
+		case: 'H':
+			wizardStats();
+			break;
+		case: 'i':
+		case: 'I':
+			clericInfo();
+			break;
+		case: 'j':
+		case: 'J':
+			rogueInfo();
+			break;
+		case: 'k':
+		case: 'K':
+			fighterInfo();
+			break;
+		case: 'l':
+		case: 'L':
+			warlockInfo();
+			break;
+		case: 'm':
+		case: 'M':
+			paladinInfo();
+			break;
+		case: 'n':
+		case: 'N':
+			warlordInfo();
+			break;
+		case: 'o':
+		case: 'O':
+			rangerInfo();
+			break;
+		case: 'p':
+		case: 'P':
+			wizardInfo();
+			break;
+		default:
+			clericStats();
+	}
+}
+
+void clericStats()
+{
+	
+}
+
+void rogueStats()
+{
+	
+}
+
+void fighterStats()
+{
+	
+}
+
+void warlockStats()
+{
+	
+}
+
+void paladinStats()
+{
+	
+}
+
+void warlordStats()
+{
+	
+}
+
+void rangerStats()
+{
+	
+}
+
+void wizardStats()
+{
+	
+}
+
+void clericInfo()
+{
+	chooseClass();
+}
+
+void rogueInfo()
+{
+	chooseClass();
+}
+
+void fighterInfo()
+{
+	chooseClass();
+}
+
+void warlockInfo()
+{
+	chooseClass();
+}
+
+void paladinInfo()
+{
+	chooseClass();
+}
+
+void warlordInfo()
+{
+	chooseClass();
+}
+
+void rangerInfo()
+{
+	chooseClass();
+}
+
+void wizardInfo()
+{
+	chooseClass();
 }
 
 void startGame()
