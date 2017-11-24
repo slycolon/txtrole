@@ -5,24 +5,52 @@
 
 using namespace std;
 
-//global constants begin
-const int LEVEL_TWO = 50;
-const int LEVEL_THREE = 100;
-const int LEVEL_FOUR = 200;	//total experience accumulated to 
-const int LEVEL_FIVE = 350;
-const int LEVEL_SIX = 550;
-
-
-//global constants end 
 //begin global variables
-string name;
-int health = 50;
-int strength = 15;
-int defense = 15;		//base player stats
-int speed = 15;
-int level = 1;
-int totalExperience = 0;
 
+	//race traits
+
+double playerHeight;			//player height, in metres
+int playerWeight;
+int playerSpeed;
+int playerAttack;
+int playerDefense;
+string race;
+
+bool commonKnown;
+bool deepSpeechKnown;
+bool draconicKnown;
+bool dwarvenKnown;
+bool elvenKnown;
+bool giantKnown;
+bool goblinKnown;
+bool primordialKnown;
+bool supernalKnown;
+bool abyssalKnown;
+
+
+
+//other traits
+
+string name;
+int playerLevel = 1;
+int playerXP = 0;
+	/****
+	enemies & stats (base, before balancing):
+	
+		lycanthropes (p.180 in mm):
+			
+		hydra (p. 164 in mm):
+			
+		humans (p. 162 in mm):
+			
+		guardians (p.149 in mm):
+			
+		golems (p.142 in mm):
+			
+		doppelganger (p.71 in mm):
+			
+		
+	****/
 string currentEnemy;
 string enemyFlavor;
 string enemyAttackNameOne;
@@ -36,16 +64,30 @@ int enemyAttack = 0;
 int enemyDefense = 0;
 int enemyExperience = 0;	//how much experience the player gets from killing the enemy
 
-bool canGoNorth = true;
-bool canGoSouth = true;
-bool canGoEast = true;		//used to find which way the player is able to go
-bool canGoWest = true;
-
 //end global variables
 
 //begin function prototyping
 void begin();
-void findName();
+void chooseName();
+
+void chooseClass();
+void dragonbornStats();
+void dwarfStats();
+void eladrinStats();
+void elfStats();
+void halfElfStats();
+void halflingStats();
+void tieflingStats();
+void humanStats();
+void dragonbornInfo();
+void dwarfInfo();
+void eladrinInfo();
+void elfInfo();
+void halfElfInfo();
+void halflingInfo();
+void tieflingInfo();
+void humanInfo();
+
 void startGame();
 
 void enterCave();
@@ -60,7 +102,8 @@ int main()
 	char choice;
 	
 	begin();
-	findName();
+	chooseName();
+	chooseClass();
 	findWeapon();
 	startGame();
 		
@@ -86,12 +129,9 @@ void begin();
 	cout<<endl;
 }
 
-/****
-function name: void findName()
-purpose: asks the player for their name
-****/
 
-void findName()
+
+void chooseName()
 {
 	bool askName = true;
 	char isName;
@@ -119,8 +159,226 @@ void findName()
 		}
 		
 	} while (askName == false);
+}
 
+void chooseClass()
+{
+	char choice;
+	
+	cout<<"now, what race might you be?" << endl << endl
+		<<"(a) dragonborn (for more info, type (i)" << endl
+		<<"(b) dwarf (for more info, type (j)" << endl
+		<<"(c) eladrin (for more info, type (k)" << endl
+		<<"(d) elf (for more info, type (l)" << endl
+		<<"(e) half-elf (for more info, type (m)" << endl
+		<<"(f) halfling (for more info, type (n)" << endl
+		<<"(g) tiefling (for more info, type (o)" << endl
+		<<"(h) human (for more info, type (p)" << endl << endl
+		<<">";
+	
+	cin >> choice;
+		
+	switch (choice)
+	{
+		case 'a':
+		case 'A':
+			dragonbornStats();
+			break;
+		case 'b':
+		case 'B':
+			dwarfStats();
+			break;
+		case 'c':
+		case 'C':
+			eladrinStats();
+			break;
+		case 'd':
+		case 'D':
+			elfStats();
+			break;
+		case 'e':
+		case 'E':
+			halfElfStats();
+			break;
+		case 'f':
+		case 'F':
+			halflingStats();
+			break;
+		case 'g':
+		case 'G':
+			tieflingStats();
+			break;
+		case 'h':
+		case 'H':
+			humanStats()
+			break;
+		case 'i':
+		case 'I':
+			dragonbornInfo();
+			break;
+		case 'j':
+		case 'J':
+			dwarfInfo();
+			break;
+		case 'k':
+		case 'K':
+			eladrinInfo();
+			break;
+		case 'l':
+		case 'L':
+			elfInfo()
+			break;
+		case 'm':
+		case 'M':
+			halfElfInfo();
+			break;
+		case 'n':
+		case 'N':
+			halflingInfo();
+			break;
+		case 'o':
+		case 'O':
+			tieflingInfo();
+			break;
+		case 'p':
+		case 'P':
+			humanInfo();
+			break;
+		default:
+			humanInfo();
+	}
+}
 
+void dragonbornStats()
+{
+	commonKnown = true;
+	draconicKnown = true;
+	deepSpeechKnown = false;
+	draconicKnown = false;
+	dwarvenKnown = false;
+	elvenKnown = false;
+	giantKnown = false;
+	goblinKnown = false;
+	primordialKnown = false;
+	supernalKnown = false;
+	abyssalKnown = false;
+	
+	playerHeight = 1.9;
+	playerWeight = 122;
+}
+
+void dwarfStats()
+{
+	commonKnown = true;
+	draconicKnown = false;
+	deepSpeechKnown = false;
+	draconicKnown = false;
+	dwarvenKnown = true;
+	elvenKnown = false;
+	giantKnown = false;
+	goblinKnown = false;
+	primordialKnown = false;
+	supernalKnown = false;
+	abyssalKnown = false;
+}
+
+void eladrinStats()
+{
+	commonKnown = true;
+	draconicKnown = false;
+	deepSpeechKnown = false;
+	draconicKnown = false;
+	dwarvenKnown = false;
+	elvenKnown = true;
+	giantKnown = false;
+	goblinKnown = false;
+	primordialKnown = false;
+	supernalKnown = false;
+	abyssalKnown = false;
+}
+
+void elfStats()
+{
+	commonKnown = true;
+	draconicKnown = false;
+	deepSpeechKnown = false;
+	draconicKnown = false;
+	dwarvenKnown = false;
+	elvenKnown = true;
+	giantKnown = false;
+	goblinKnown = false;
+	primordialKnown = false;
+	supernalKnown = false;
+	abyssalKnown = false;
+}
+
+void halfElfStats()
+{
+	commonKnown = true;
+	draconicKnown = false;
+	deepSpeechKnown = true;
+	draconicKnown = false;
+	dwarvenKnown = false;
+	elvenKnown = true;
+	giantKnown = false;
+	goblinKnown = false;
+	primordialKnown = false;
+	supernalKnown = false;
+	abyssalKnown = false;
+}
+
+void halflingStats()
+{
+	commonKnown = true;
+	draconicKnown = false;
+	deepSpeechKnown = false;
+	draconicKnown = true;
+	dwarvenKnown = false;
+	elvenKnown = false;
+	giantKnown = false;
+	goblinKnown = true;
+	primordialKnown = false;
+	supernalKnown = false;
+	abyssalKnown = false;
+}
+
+void tieflingStats()
+{
+	commonKnown = true;
+	draconicKnown = false;
+	deepSpeechKnown = false;
+	draconicKnown = false;
+	dwarvenKnown = false;
+	elvenKnown = false;
+	giantKnown = false;
+	goblinKnown = false;
+	primordialKnown = false;
+	supernalKnown = false;
+	abyssalKnown = false;
+}
+
+void humanStats()
+{
+	commonKnown = true;
+	draconicKnown = false;
+	deepSpeechKnown = false;
+	draconicKnown = false;
+	dwarvenKnown = false;
+	elvenKnown = false;
+	giantKnown = false;
+	goblinKnown = false;
+	primordialKnown = false;
+	supernalKnown = false;
+	abyssalKnown = false;
+	
+	
+}
+
+void dragonbornInfo()
+{
+	cout<<"--------------------------------------------------------------------------------------------------------------"; 
+	cout<<"
+}
 
 void startGame()
 {
@@ -173,78 +431,3 @@ void enterVillage()
 	
 }
 
-/****
-function name: void checkLevel()
-purpose: checks the player level after any encounter where
-the player receives experience. if their level changes,
-that means they level up and it tells them their new level,
-and it changes their statistics accordingly
-****/
-void checkLevel()
-{
-	int newLevel;
-	
-	if(experience < LEVEL_TWO)
-	{
-		level = 1;
-	}
-	else if (experience >= LEVEL_TWO || experience < LEVEL_THREE)
-	{
-		newLevel = 2;
-		if (newLevel - level != 0)
-		{
-			cout<<"congrats! you're now level " << newLevel << "!";
-		}
-		level = 2;
-		strength = 20;
-		defense = 20;					//these new stats may need to be rebalanced during testing
-		speed = 20;
-	}
-	else if (experience >= LEVEL_THREE || experience < LEVEL_FOUR)
-	{
-		newLevel = 3;
-		if (newLevel - level != 0)
-		{
-			cout<<"congrats! you're now level " << newLevel << "!";
-		}
-		level = 3;
-		strength = 25;
-		defense = 25;
-		speed = 25;
-	}
-	else if (experience >= LEVEL_FOUR || experience < LEVEL_FIVE)
-	{
-		newLevel = 4;
-		if (newLevel - level != 0)
-		{
-			cout<<"congrats! you're now level " << newLevel << "!";
-		}
-		level = 4;
-		strength = 30;
-		defense = 30;
-		speed = 30;
-	}
-	else if (experience >= LEVEL_FIVE || experience < LEVEL_SIX)
-	{
-		newLevel = 5;
-		if (newLevel - level != 0)
-		{
-			cout<<"congrats! you're now level " << newLevel << "!";
-		}
-		level = 5;
-		strength = 35;
-		defense = 35;
-		speed = 35;
-	}
-	else
-	{
-		newLevel = 6;
-		if (newLevel - level != 0)
-		{
-			cout<<"congrats! you're now level " << newLevel << "!";
-		}
-		level = 6;
-		strength = 40;
-		defense = 40;
-		speed = 40;
-	}
