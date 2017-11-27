@@ -14,7 +14,7 @@ int playerWeight;
 int playerSpeed;
 int playerAttack;
 int playerDefense;
-string race;
+string playerRace;
 
 bool commonKnown;
 bool deepSpeechKnown;
@@ -60,7 +60,7 @@ string enemyAttackNameTwo;
 string enemyAttackNameThree;
 string enemyAttackDescOne;
 string enemyAttackDescTwo;
-string enemyAttackDescTwo;
+string enemyAttackDescThree;
 int enemyHealth = 0;		//changeable variables for enemy statistics, depending on what 
 int enemyAttack = 0;
 int enemyDefense = 0;
@@ -125,14 +125,14 @@ int main()
 	return 0;
 }
 
-void begin();
+void begin()
 {
-	cout<<"© slycolon 2017. all rights reserved." << endl << endl
+	cout<<"copyright slycolon 2017. all rights reserved." << endl << endl
 		<<" ______                       " << endl
 		<<"|_    _|     __               __" << endl
 		<<"  |  |__  __|  |_ ____  _____|  |_____ " << endl
-		<<"  |  |\ \/ /|   _|  __||  .  |  |  -__|" << endl
-		<<"  |__|/_/\_\|__| |_|   |_____|__|_____ " << endl << endl
+		<<"  |  |\\ \\/ /|   _|  __||  .  |  |  -__|" << endl
+		<<"  |__|/_/\\_\\|__| |_|   |_____|__|_____ " << endl << endl
 		<<"welcome to txtrole, a text-based choose your own adventure style rpg," << endl
 		<<"created by slycolon. press enter to begin. ";
 	cin.ignore();
@@ -165,7 +165,7 @@ void chooseName()
 		else
 		{
 			askName = false;
-			cout<<endl <<"okay, so if your name isn't " << name << ", then what might it be?" << endl << endl ">";
+			cout<<endl <<"okay, so if your name isn't " << name << ", then what might it be?" << endl << endl << ">";
 			
 			cin >> name;
 		}
@@ -224,7 +224,7 @@ void chooseRace()
 			break;
 		case 'h':
 		case 'H':
-			humanStats()
+			humanStats();
 			break;
 		case 'i':
 		case 'I':
@@ -240,7 +240,7 @@ void chooseRace()
 			break;
 		case 'l':
 		case 'L':
-			elfInfo()
+			elfInfo();
 			break;
 		case 'm':
 		case 'M':
@@ -505,68 +505,68 @@ void chooseClass()
 	
 	switch (choice)
 	{
-		case: 'a':
-		case: 'A':
+		case 'a':
+		case 'A':
 			clericStats();
 			break;
-		case: 'b':
-		case: 'B':
+		case 'b':
+		case 'B':
 			rogueStats();
 			break;
-		case: 'c':
-		case: 'C':
+		case 'c':
+		case 'C':
 			fighterStats();
 			break;
-		case: 'd':
-		case: 'D':
+		case 'd':
+		case 'D':
 			warlockStats();
 			break;
-		case: 'e':
-		case: 'E':
+		case 'e':
+		case 'E':
 			paladinStats();
 			break;
-		case: 'f':
-		case: 'F':
+		case 'f':
+		case 'F':
 			warlordStats();
 			break;
-		case: 'g':
-		case: 'G':
+		case 'g':
+		case 'G':
 			rangerStats();
 			break;
-		case: 'h':
-		case: 'H':
+		case 'h':
+		case 'H':
 			wizardStats();
 			break;
-		case: 'i':
-		case: 'I':
+		case 'i':
+		case 'I':
 			clericInfo();
 			break;
-		case: 'j':
-		case: 'J':
+		case 'j':
+		case 'J':
 			rogueInfo();
 			break;
-		case: 'k':
-		case: 'K':
+		case 'k':
+		case 'K':
 			fighterInfo();
 			break;
-		case: 'l':
-		case: 'L':
+		case 'l':
+		case 'L':
 			warlockInfo();
 			break;
-		case: 'm':
-		case: 'M':
+		case 'm':
+		case 'M':
 			paladinInfo();
 			break;
-		case: 'n':
-		case: 'N':
+		case 'n':
+		case 'N':
 			warlordInfo();
 			break;
-		case: 'o':
-		case: 'O':
+		case 'o':
+		case 'O':
 			rangerInfo();
 			break;
-		case: 'p':
-		case: 'P':
+		case 'p':
+		case 'P':
 			wizardInfo();
 			break;
 		default:
@@ -668,7 +668,7 @@ void startGame()
 	cin >> choice;
 	cout<<endl;
 	
-	if (char == 'N' || char == 'n')
+	if (choice == 'N' || choice == 'n')
 		enterCave();
 	else
 		enterVillage();
