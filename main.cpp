@@ -2,6 +2,7 @@
 #include <iomanip>
 #include <cstdlib>
 #include <ctime>
+#include <windows.h>
 
 using namespace std;
 
@@ -134,8 +135,8 @@ void begin()
 		<<"  |  |\\ \\/ /|   _|  __||  .  |  |  -__|" << endl
 		<<"  |__|/_/\\_\\|__| |_|   |_____|__|_____ " << endl << endl
 		<<"welcome to txtrole, a text-based choose your own adventure style rpg," << endl
-		<<"created by slycolon. press enter to begin. ";
-	cin.ignore();
+		<<"created by slycolon. press any button to begin. ";
+	System("PAUSE")
 	cout<<endl;
 	
 	chooseName();
