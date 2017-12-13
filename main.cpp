@@ -72,6 +72,7 @@ int enemyExperience = 0;	//how much experience the player gets from killing the 
 //begin function prototyping
 void begin();
 void chooseName();
+void readMessage(int, string);
 
 void chooseRace();
 void dragonbornStats();
@@ -125,6 +126,12 @@ int main()
 	begin();	
 	return 0;
 }
+
+void readMessage(int delay, string message)
+{
+	
+}
+
 
 void begin()
 {
