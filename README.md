@@ -1,2 +1,2 @@
 # txtrole
-a text-based rpg
+a text-based sci-fi rpg
