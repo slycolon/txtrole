@@ -7,6 +7,7 @@ class player
 		int health;
 		int attack;
 		int defense;
+		char playerName[50];
 		
 	public:
 		int get_health()
@@ -37,6 +38,19 @@ class player
 		void set_defense(int setdefense)
 		{
 			defense = setdefense;
+		}
+		
+		void set_name()
+		{
+			cout<<endl
+				<<"what is your name?" << endl << endl
+				<<">";
+			getline(cin, playerName);
+		}
+	
+		char get_name()
+		{
+			return playerName;
 		}
 }
 
