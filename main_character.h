@@ -5,8 +5,12 @@ class player
 {
 	private:
 		int health;
+		int height;
+		int weight;
+		int speed;
 		int attack;
 		int defense;
+		int level;
 		char playerName[50];
 		
 	public:
@@ -14,20 +18,44 @@ class player
 		{
 			return health;
 		}
-		
-		int get_attack()
-		{
-			return attack;
-		}
-	
-		int get_defense()
-		{
-			return defense;
-		}
 	
 		void set_health(int sethealth)
 		{
 			health = sethealth;
+		}
+	
+		int get_height()
+		{
+			return height;
+		}
+	
+		void set_height(int setheight)
+		{
+			height = setheight;
+		}
+	
+		int get_weight()
+		{
+			return weight;
+		}
+	
+		void set_weight(int setweight)
+		{
+			weight = setweight;
+		}
+	
+		int get_speed()
+		{
+			return speed;
+		}
+	
+		void set_speed(int setspeed)
+		{
+			speed = setspeed;
+		}
+		int get_attack()
+		{
+			return attack;
 		}
 	
 		void set_attack(int setattack)
@@ -35,11 +63,21 @@ class player
 			attack = setattack;
 		}
 	
+		int get_defense()
+		{
+			return defense;
+		}
+	
 		void set_defense(int setdefense)
 		{
 			defense = setdefense;
 		}
 		
+		char get_name()
+		{
+			return playerName;
+		}
+	
 		void set_name()
 		{
 			cout<<endl
@@ -48,10 +86,22 @@ class player
 			getline(cin, playerName);
 		}
 	
-		char get_name()
+		int get_level()
 		{
-			return playerName;
+			return level;
 		}
+	
+		void set_level(int setlevel)
+		{
+			level = setlevel;
+		}
+	
+		void levelUp()
+		{
+			level += 1;
+		}
+	
+		
 }
 
 
