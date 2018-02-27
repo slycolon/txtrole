@@ -4,13 +4,41 @@
 class minion
 {
 	private:
-		int type;
+		char race[50];
+		char name[50];
 		int health;
 		int attack;
 		int atkModifier;
 		int defense;
 		int speed;
 	public:
+		
+		char get_race()
+		{
+			return race;
+		}
+		
+		void set_race(char setrace[])
+		{
+			for (int x = 0; x < 50; x++)
+			{
+				race[x] = setrace[x];
+			}
+		}
+		
+		char get_name()
+		{
+			return name;
+		}
+	
+		void set_name(char setname[])
+		{
+			for (int x = 0; x < 50; x++)
+			{
+				name[x] = setname[x];
+			}
+		}
+		
 		int get_type()
 		{
 			return type;
