@@ -4,6 +4,7 @@
 class player
 {
 	private:
+		char name[50];
 		int health;
 		int height;
 		int weight;
@@ -11,9 +12,21 @@ class player
 		int attack;
 		int defense;
 		int level;
-		char playerName[50];
 		
 	public:
+		char get_name()
+		{
+			return name;
+		}
+		
+		void set_name(char setname[])
+		{
+			for (int x = 0; x < 50; x++)
+			{
+				name[x] = setname[x];
+			}
+		}
+		
 		int get_health()
 		{
 			return health;
@@ -71,19 +84,6 @@ class player
 		void set_defense(int setdefense)
 		{
 			defense = setdefense;
-		}
-		
-		char get_name()
-		{
-			return playerName;
-		}
-	
-		void set_name()
-		{
-			cout<<endl
-				<<"what is your name?" << endl << endl
-				<<">";
-			getline(cin, playerName);
 		}
 	
 		int get_level()
