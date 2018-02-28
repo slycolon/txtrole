@@ -6,7 +6,7 @@ class player
 	private:
 		char name[50];
 		int health;
-		int height;
+		double height;
 		int weight;
 		int speed;
 		int attack;
@@ -14,6 +14,8 @@ class player
 		int level;
 		
 	public:
+		void player(char a[], int b, double c, int d, int e, int f, int g, int h) : name(a), health(b), height(c), weight(d), speed(e), attack(f), defense(g), level(h) {}
+		
 		char get_name()
 		{
 			return name;
