@@ -4,7 +4,7 @@
 #include <windows.h>
 #include "main_character.h"
 #include "minion.h"
-#include "createCharacter.h"
+#include "character_options.h"
 
 using namespace std;
 
