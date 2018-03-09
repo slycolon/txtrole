@@ -17,23 +17,27 @@ void start()
 {
 	char choice;
 	
-	cout<<"welcome to txtrole. new character or load (n/l)?" <<endl << endl
-		<<">";
-	cin >> choice;
+	cout<<"welcome to txtrole. ";
 	
-	if (choice == 'n' || choice == 'N')
+	do 
 	{
-		newCharacter();
-	}
-	else if (choice == 'l' || choice == 'L')
-	{
-		 loadCharacter();
-	}
-	else
-	{
-		
-		cout<<"invalid. new character or load (n/l)?" <<endl<<endl
-			<<">";
+		cout<<"new character or load (n/l)?" << endl << endl << ">";
 		cin >> choice;
-		
-}
+	
+		if (choice == 'n' || choice == 'N')
+		{
+			found = true;
+			newCharacter();
+		}
+		else if (choice == 'l' || choice == 'L')
+		{
+			found = true;
+			loadCharacter();
+		}
+		else
+		{
+			
+			cout<<"invalid. "
+			cin >> choice;
+			
+	} while (found == false);
